@@ -1,0 +1,57 @@
+<html>
+<head></head>
+<body onload = "demo()">
+<style>
+div
+{
+height:50px;
+width:190px;
+background:maroon;
+font-size:40px;
+line-height:50px;
+text-align:center;
+float:left;
+margin:2px;
+}
+</style>
+<p></p>
+<input type = "text" id = "txt" />
+<script>
+function demo()
+{
+var s = "0123456789abcdef"
+var dv = ""
+for(var a=0;a<100;a++)
+{
+var color = "#"
+var color1 = "#"
+for (var i=0;i<=5;i++)
+{
+var rIndex = Math.floor(Math.random()*16)
+var rIndex1 = Math.floor(Math.random()*16)
+var rCh    = s[rIndex]
+var rCh1   = s[rIndex1]
+color = color+rCh  
+color1 = color1+rCh1
+}
+dv = dv +"<div onclick = 'copyCode(this)'style='background:"+color+";border:8px groove"+color1+";'>"+color+"</div>"
+}
+document.querySelector("p").innerHTML =dv
+}
+
+function copyCode(x)
+{
+var txt = document.querySelector("input")
+txt.value = x.innerText
+txt.select()
+document.execCommand("Copy") 
+alert("color code copied")
+} 
+//setInterval(demo,400) #0f6251 #0f6251
+</script>
+</body>
+</html>
+
+
+
+
